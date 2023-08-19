@@ -1,0 +1,638 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API de prueba erictel",
+        "description": "API para prueba de erictel",
+        "contact": {
+            "email": "agongorita@outlook.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost/prueba-erictel-backend/public"
+        }
+    ],
+    "paths": {
+        "/api/v1/login": {
+            "post": {
+                "tags": [
+                    "auth"
+                ],
+                "summary": "Valida las credenciales del usuario",
+                "description": "Retorna datos del usuario",
+                "operationId": "3b03eb66e9fc14dbed91d82e3a240a06",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "email": "correo@correo.com",
+                                    "password": "123456"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "¡Usuario logeado exitosamente!",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "result": {
+                                        "summary": "An result object.",
+                                        "value": {
+                                            "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0L3BydWViYS1lcmljdGVsLWJhY2tlbmQvcHVibGljL2FwaS92MS9sb2dpbiIsImlhdCI6MTY5MjQ3MzIxNSwiZXhwIjoxNjkyNDc2ODE1LCJuYmYiOjE2OTI0NzMyMTUsImp0aSI6IlBPc05QWm1mZFB6ZTU0OWQiLCJzdWIiOiIzMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.73yF7Z5vvqsDFsOl1wpsisW6pSHn6RRE1FO64WuQmE8",
+                                            "user": {
+                                                "id": 31,
+                                                "name": "Andrés Góngora",
+                                                "email": "correo@correo.com",
+                                                "description": "Hola",
+                                                "image": null,
+                                                "email_verified_at": null,
+                                                "created_at": "2023-08-19T17:21:41.000000Z",
+                                                "updated_at": "2023-08-19T17:21:41.000000Z"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "Ha ocurrido un error.",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "result": {
+                                        "summary": "An result object.",
+                                        "value": {
+                                            "message": "Error"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/logout": {
+            "post": {
+                "tags": [
+                    "auth"
+                ],
+                "summary": "Valida las credenciales del usuario",
+                "description": "Retorna la confirmación de cierre",
+                "operationId": "ee643cac55a982fc398983af84bf28aa",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "email": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2xvZ2luIiwiaWF0IjoxNjkyNDA5NDY5LCJleHAiOjE2OTI0MTMwNjksIm5iZiI6MTY5MjQwOTQ2OSwianRpIjoiYU9nZjROemdZYzRSUFdZMiIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.H3TBGRRubLGvIxhlc2nbNCEQayRuVx7YNumtXr93s4s"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Usuario desconectado exitosamente.",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "result": {
+                                        "summary": "An result object.",
+                                        "value": {
+                                            "success": true,
+                                            "message": "Se ha desconectado la sesion."
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "Ha ocurrido un error.",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "result": {
+                                        "summary": "An result object.",
+                                        "value": {
+                                            "message": "Error"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/get-all-currencies": {
+            "get": {
+                "tags": [
+                    "cripto"
+                ],
+                "summary": "Listar cripto monedas",
+                "description": "Retorna dla lista de criptomonedas",
+                "operationId": "51530fec4347e9c6d758b6907f66742e",
+                "responses": {
+                    "200": {
+                        "description": "¡Usuario creado exitosamente!",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "result": {
+                                        "summary": "An result object.",
+                                        "value": {
+                                            "status": {
+                                                "timestamp": "2023-08-19T13:38:29.223Z",
+                                                "error_code": 0,
+                                                "error_message": null,
+                                                "elapsed": 2,
+                                                "credit_count": 1,
+                                                "notice": null
+                                            },
+                                            "data": []
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "Ha ocurrido un error.",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "result": {
+                                        "summary": "An result object.",
+                                        "value": {
+                                            "message": "Error"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/get-spec-currency": {
+            "get": {
+                "tags": [
+                    "cripto"
+                ],
+                "summary": "Mostrar una cripto moneda en especifico",
+                "description": "Retorna dla lista de criptomonedas",
+                "operationId": "5375d642e52d695f04c80631c03b508e",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "id": 1
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Moneda encontrada",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "result": {
+                                        "summary": "An result object.",
+                                        "value": {
+                                            "status": {
+                                                "timestamp": "2023-08-19T13:38:29.223Z",
+                                                "error_code": 0,
+                                                "error_message": null,
+                                                "elapsed": 2,
+                                                "credit_count": 1,
+                                                "notice": null
+                                            },
+                                            "data": []
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "Ha ocurrido un error.",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "result": {
+                                        "summary": "An result object.",
+                                        "value": {
+                                            "message": "Error"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/create-user": {
+            "post": {
+                "tags": [
+                    "users"
+                ],
+                "summary": "Crea un usuario",
+                "description": "Retorna datos del usuario",
+                "operationId": "671f27ee51d9d490bd9c7aa1955b2a74",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    },
+                                    "password_confirmation": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "email": "correo@correo.com",
+                                    "name": "Andrés Góngora",
+                                    "description": "Hola",
+                                    "password": "123456",
+                                    "password_confirmation": "123456"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "¡Usuario creado exitosamente!",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "result": {
+                                        "summary": "An result object.",
+                                        "value": {
+                                            "user": {
+                                                "id": 31,
+                                                "name": "Andrés Góngora",
+                                                "email": "correo@correo.com",
+                                                "description": "Hola",
+                                                "image": null,
+                                                "email_verified_at": null,
+                                                "created_at": "2023-08-19T17:21:41.000000Z",
+                                                "updated_at": "2023-08-19T17:21:41.000000Z"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "Ha ocurrido un error.",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "result": {
+                                        "summary": "An result object.",
+                                        "value": {
+                                            "message": "Error"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/get-user": {
+            "get": {
+                "tags": [
+                    "users"
+                ],
+                "summary": "Muestra datos de un usuario",
+                "description": "Retorna datos del usuario",
+                "operationId": "3398ec39b334fc02409b94ffd6238eb6",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "token": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2xvZ2luIiwiaWF0IjoxNjkyNDExNDAwLCJleHAiOjE2OTI0MTUwMDAsIm5iZiI6MTY5MjQxMTQwMCwianRpIjoiUnppVmpaWWVyNUxVdjNrbiIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.cI-Vo3eoPD1-Xpy4kW1pWHiBZTlKRdeZn-AIFfRCFww"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Resultado correcto",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "result": {
+                                        "summary": "An result object.",
+                                        "value": {
+                                            "user": {
+                                                "id": 31,
+                                                "name": "Andrés Góngora",
+                                                "email": "correo@correo.com",
+                                                "description": "Hola",
+                                                "image": null,
+                                                "email_verified_at": null,
+                                                "created_at": "2023-08-19T17:21:41.000000Z",
+                                                "updated_at": "2023-08-19T17:21:41.000000Z"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Usuario invalido",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "result": {
+                                        "summary": "An result object.",
+                                        "value": {
+                                            "message": "Token has expired"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "result": {
+                                        "summary": "An result object.",
+                                        "value": {
+                                            "message": "Error"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/upload-image-user": {
+            "post": {
+                "tags": [
+                    "users"
+                ],
+                "summary": "Sube la imagen de  un usuario",
+                "description": "Retorna la confirmacion de subida",
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "image": {
+                                        "type": "string",
+                                        "format": "binary"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "¡Usuario creado exitosamente!",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "result": {
+                                        "summary": "An result object.",
+                                        "value": {
+                                            "message": "Imagen de perfil actualizada"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "Ha ocurrido un error.",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "result": {
+                                        "summary": "An result object.",
+                                        "value": {
+                                            "message": "Error"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/update-user": {
+            "put": {
+                "tags": [
+                    "users"
+                ],
+                "summary": "Actualiza un usuario",
+                "description": "Retorna datos del usuario",
+                "operationId": "2416a3aa3de44465e9dba0e0e882806c",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    },
+                                    "password_confirmation": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "email": "correo@correo.com",
+                                    "name": "Andrés Góngora",
+                                    "description": "Hola",
+                                    "password": "123456",
+                                    "password_confirmation": "123456"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Usuario actualizado exitosamente",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "result": {
+                                        "summary": "An result object.",
+                                        "value": {
+                                            "user": {
+                                                "id": 31,
+                                                "name": "Andrés Góngora",
+                                                "email": "correo@correo.com",
+                                                "description": "Hola",
+                                                "image": null,
+                                                "email_verified_at": null,
+                                                "created_at": "2023-08-19T17:21:41.000000Z",
+                                                "updated_at": "2023-08-19T17:21:41.000000Z"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "Ha ocurrido un error.",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "result": {
+                                        "summary": "An result object.",
+                                        "value": {
+                                            "message": "Error"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "apiAuth": {
+                "type": "http",
+                "description": "Login with email and password to get the authentication token",
+                "name": "Token based Based",
+                "in": "header",
+                "bearerFormat": "JWT",
+                "scheme": "bearer"
+            }
+        }
+    }
+}
