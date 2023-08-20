@@ -20,7 +20,7 @@ use Illuminate\Routing\Controller as BaseController;
  *         url="https://www.apache.org/licenses/LICENSE-2.0.html"
  *     )
  * )
- * @OA\Server(url="http://localhost/prueba-erictel-backend/public"),
+ * @OA\Server(url="https://pruebaerictel.us"),
  * @OA\SecurityScheme(
  *     type="http",
  *     description="Login with email and password to get the authentication token",
