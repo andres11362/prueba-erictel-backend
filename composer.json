@@ -52,7 +52,7 @@
         "test": [
             "vendor/bin/phpunit"
         ],
-        "post-install-cmd": [
+        "post-install-cmd": [s
             "php artisan clear-compiled",
             "chmod -R 755 public/"
         ]       
