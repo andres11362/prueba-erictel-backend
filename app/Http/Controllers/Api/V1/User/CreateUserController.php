@@ -78,15 +78,16 @@ class CreateUserController extends Controller
                 return response()->json(['errors' => $validator], 422);
             }
             DB::beginTransaction();
+            $credentials = $request->only('email', 'password');
+            $token = JWTAuth::attempt($credentials),
+
             $body = $this->getBodySecciones($validator);
             $user = User::create($body);
             DB::commit();
 
-            $credentials = $request->only('email', 'password');
-
             return response()->json([
                 'user' => $user,
-                'token' => JWTAuth::attempt($credentials),
+                'token' => $token,
                 'message' => '¡Usuario creado exitosamente!'
             ], 200);
         } catch (\Exception $e) {
