@@ -53,43 +53,60 @@ Parametros del api de CoinMarketCap
 - `CMC_API_KEY`: LLave a utilizar para la conectar con el api.
 - `CMC_ENDPOINT`: Endpoint del consumo para la API.
 
+Implementación de JWT.
+----------------
+1. El archivo ya esta generado pero si es el caso utilizar el siguiente comando:
+
+```bash
+   php artisan vendor:publish --provider="Tymon\JWTAuth\Providers\LaravelServiceProvider"
+```
+
+Despues implementar el siguiente comando:
+
+```bash
+   php artisan jwt:secret
+```
+Esto generara la llave en el .env para su uso en las peticiones.
+
+
+Generacion de migraciones.
+----------------
+
+1. Usar el siguente comando:
+
+```bash
+   php artisan migrate
+```
+
+2. despues alimentamos la base de datos con este comando:
+
+```bash
+   php artisan db:seed
+```
 
 
 
 
     
-## Run Locally
+## Correr localmente
 
-Clone the project
-
-```bash
-  git clone https://link-to-project
-```
-
-Go to the project directory
+Se recomienda dejarlo en un servidor XAMPP, sin embargo si no es posible utilizar el siguiente comando:
 
 ```bash
-  cd my-project
-```
-
-Install dependencies
-
-```bash
-  npm install
-```
-
-Start the server
-
-```bash
-  npm run start
+  php artisan serve
 ```
 
 
-## Environment Variables
 
-To run this project, you will need to add the following environment variables to your .env file
+## Miscelaneos
 
-`API_KEY`
+La api se puede consultar en un ambiente pruebas en la siguiente dirección: https://pruebaerictel.us/
 
-`ANOTHER_API_KEY`
+Documentación del API
+---------------
 
+Si se desea ver la documentación se puede ir la direccion (tanto en localhost como en el dominio) con el siguiente segmento: 
+
+```bash
+  /api/documentation
+```
