@@ -79,7 +79,7 @@ class CreateUserController extends Controller
             }
             DB::beginTransaction();
             $credentials = $request->only('email', 'password');
-            $token = JWTAuth::attempt($credentials),
+            $token = JWTAuth::attempt($credentials);
 
             $body = $this->getBodySecciones($validator);
             $user = User::create($body);
