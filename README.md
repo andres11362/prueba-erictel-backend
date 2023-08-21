@@ -18,7 +18,7 @@ A continuacion se muestra el proceso de instalación y configuración del proyec
 ## Instalación
 
 1. Descargar el repositorio.
-2. Preferiblemente utilizar XAMPP como servidor local, si no se puede ir al paso 10.
+2. Preferiblemente utilizar XAMPP como servidor local, si no se puede ir al paso correr localmente.
 3. Ir al la raiz del proyecto
 4. Usar el comando:
 ```bash
