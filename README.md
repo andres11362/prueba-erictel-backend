@@ -100,7 +100,9 @@ Se recomienda dejarlo en un servidor XAMPP, sin embargo si no es posible utiliza
 
 ## Miscelaneos
 
-La api se puede consultar en un ambiente pruebas en la siguiente dirección: https://pruebaerictel.us/
+El sitio se puede consultar en un ambiente de pruebas en la siguiente dirección: https://pruebaerictel.us/
+
+Para la consulta de la api con esta direccion: https://pruebaerictel.us/api/v1
 
 Documentación del API
 ---------------
@@ -126,3 +128,4 @@ Cualquier duda o sugerencia a los siguientes correos:
 
 - agongorita@outlook.com
 - agongora@ditech.es
+
