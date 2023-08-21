@@ -110,3 +110,19 @@ Si se desea ver la documentación se puede ir la direccion (tanto en localhost c
 ```bash
   /api/documentation
 ```
+
+Test
+---------------
+
+Para correr los tests usar el siguiente comando
+
+```bash
+  composer test
+```
+Contacto
+---------------
+
+Cualquier duda o sugerencia a los siguientes correos:
+
+- agongorita@outlook.com
+- agongora@ditech.es

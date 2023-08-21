@@ -8,7 +8,17 @@ use CoinMarketCapApi;
 
 class CryptoCurrencyController extends Controller
 {
-    
+
+    /**
+     * Create a new AuthController instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth:api');
+    }
+
     /**
      * Funcion que registra usuarios en el sistema
      * Retornamos informacion del usuario
@@ -53,10 +63,16 @@ class CryptoCurrencyController extends Controller
      * @return response
      * 
      * @OA\Get(
-     *     path="/api/v1/get-spec-currency",
+     *     path="/api/v1/get-spec-currency/{id}",
      *     tags={"cripto"},
      *     summary="Mostrar una cripto moneda en especifico",
      *     description="Retorna dla lista de criptomonedas",
+     *     @OA\Parameter(
+     *         name="id",
+     *         in="path",
+     *         description="Buscar por id",
+     *         required=true,
+     *     ),
      *     @OA\Response(
      *         response=200,
      *         description="Moneda encontrada",  
@@ -74,10 +90,10 @@ class CryptoCurrencyController extends Controller
      *     security={{ "apiAuth": {} }}
      * )
      */
-    public function getSpecificCurrency(Request $request, $id) 
+    public function getSpecificCurrency(Request $request, $id)
     {
         try {
-            if(isset($id)) {
+            if (isset($id)) {
                 return CoinMarketCapApi::quotes([
                     'id' => $id,
                 ]);

@@ -9,6 +9,12 @@ use Illuminate\Support\Facades\DB;
 
 class UpdateUserController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth:api');
+    }
+
     /**
      * Funcion que registra usuarios en el sistema
      * Retornamos informacion del usuario

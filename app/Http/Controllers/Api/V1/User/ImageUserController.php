@@ -9,47 +9,53 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Storage;
 
-/**
- * Funcion que registra usuarios en el sistema
- * Retornamos informacion del usuario
- * @return response
- * 
- * @OA\Post(
- *     path="/api/v1/upload-image-user",
- *     tags={"users"},
- *     summary="Sube la imagen de  un usuario",
- *     description="Retorna la confirmacion de subida",
- *     @OA\RequestBody(
- *        @OA\MediaType(
- *          mediaType="multipart/form-data",
- *          @OA\Schema(
- *                 @OA\Property(
- *                     property="image",
- *                     type="string",
- *                     format="binary"
- *                 )
- *          )
- *        )
- *     ),
- *     @OA\Response(
- *         response=200,
- *         description="Imagen subida correctamente",  
- *         @OA\JsonContent(
- *            @OA\Examples(example="result", value={"message": "Imagen de perfil actualizada"}, summary="An result object."),
- *         )
- *     ),
- *     @OA\Response(
- *         response="default",
- *         description="Ha ocurrido un error.",  
- *         @OA\JsonContent(
- *              @OA\Examples(example="result", value={"message": "Error"}, summary="An result object."),
- *         )
- *     ),
- *     security={{ "apiAuth": {} }}
- * )
- */
+
 class ImageUserController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:api');
+    }
+
+    /**
+     * Funcion que registra usuarios en el sistema
+     * Retornamos informacion del usuario
+     * @return response
+     * 
+     * @OA\Post(
+     *     path="/api/v1/upload-image-user",
+     *     tags={"users"},
+     *     summary="Sube la imagen de  un usuario",
+     *     description="Retorna la confirmacion de subida",
+     *     @OA\RequestBody(
+     *        @OA\MediaType(
+     *          mediaType="multipart/form-data",
+     *          @OA\Schema(
+     *                 @OA\Property(
+     *                     property="image",
+     *                     type="string",
+     *                     format="binary"
+     *                 )
+     *          )
+     *        )
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Imagen subida correctamente",  
+     *         @OA\JsonContent(
+     *            @OA\Examples(example="result", value={"message": "Imagen de perfil actualizada"}, summary="An result object."),
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response="default",
+     *         description="Ha ocurrido un error.",  
+     *         @OA\JsonContent(
+     *              @OA\Examples(example="result", value={"message": "Error"}, summary="An result object."),
+     *         )
+     *     ),
+     *     security={{ "apiAuth": {} }}
+     * )
+     */
     public function storeImage(UserImageRequest $request)
     {
         try {

@@ -14,7 +14,7 @@
     },
     "servers": [
         {
-            "url": "http://localhost/prueba-erictel-backend/public"
+            "url": "https://pruebaerictel.us"
         }
     ],
     "paths": {
@@ -217,31 +217,22 @@
                 ]
             }
         },
-        "/api/v1/get-spec-currency": {
+        "/api/v1/get-spec-currency/{id}": {
             "get": {
                 "tags": [
                     "cripto"
                 ],
                 "summary": "Mostrar una cripto moneda en especifico",
                 "description": "Retorna dla lista de criptomonedas",
-                "operationId": "5375d642e52d695f04c80631c03b508e",
-                "requestBody": {
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "properties": {
-                                    "id": {
-                                        "type": "integer"
-                                    }
-                                },
-                                "type": "object",
-                                "example": {
-                                    "id": 1
-                                }
-                            }
-                        }
+                "operationId": "02bfc1f2ea6b6ab13d0177793eac782e",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Buscar por id",
+                        "required": true
                     }
-                },
+                ],
                 "responses": {
                     "200": {
                         "description": "Moneda encontrada",
@@ -492,7 +483,7 @@
                 },
                 "responses": {
                     "200": {
-                        "description": "¡Usuario creado exitosamente!",
+                        "description": "Imagen subida correctamente",
                         "content": {
                             "application/json": {
                                 "schema": {},

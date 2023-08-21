@@ -8,6 +8,11 @@ use JWTAuth;
 
 class GetUserController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth:api');
+    }
     /**
      * Funcion que obtiene los datos de un usuario por medio del token
      * @return response
