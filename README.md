@@ -121,6 +121,11 @@ Para correr los tests usar el siguiente comando
 ```bash
   composer test
 ```
+
+Base de datos
+---------------
+Dentro del proyecto se incluye la base de datos del proyecto con el nombre prueba-erictel.sql
+
 Contacto
 ---------------
 
