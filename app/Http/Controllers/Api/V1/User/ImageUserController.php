@@ -59,23 +59,26 @@ class ImageUserController extends Controller
                 return response()->json(['error' => $validator], 422);
             }
 
-            $user = Auth::user();
+            if ($request->file('image') !== null) {
+                $user = Auth::user();
+                if (isset($user->image)) {
+                    Storage::delete($user->image);
+                }
 
-            if (isset($user->image)) {
-                Storage::delete($user->image);
+                $image_name = time();
+                $storage_files = new StorageFiles('users', $image_name, $request->file('image'));
+                $path = $storage_files->createFile();
+
+                $user->image = $path;
+
+                $user->save();
+
+                DB::commit();
+
+                return response()->json(['message' => 'Imagen de perfil actualizada', 'route' => $user->image], 200);
+            } else {
+                return response()->json(['message' => 'No se subio nada'], 403);
             }
-
-            $image_name = time();
-            $storage_files = new StorageFiles('users', $image_name, $request->file('image'));
-            $path = $storage_files->createFile();
-
-            $user->image = $path;
-
-            $user->save();
-
-            DB::commit();
-
-            return response()->json(['message' => 'Imagen de perfil actualizada'], 200);
         } catch (\Exception $e) {
             DB::rollback();
             return response()->json(['message' => $e->getMessage()], 500);

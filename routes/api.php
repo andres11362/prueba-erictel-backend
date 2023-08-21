@@ -45,6 +45,6 @@ Route::group(['middleware' => 'api', 'prefix' => 'v1'], function ($router) {
         Route::post('logout', [AuthController::class, 'logout'])->name('logout');
         Route::post('upload-image-user', [ImageUserController::class, 'storeImage'])->name('upload-image-user');
         Route::get('get-all-currencies', [CryptoCurrencyController::class, 'getAllCurrencies'])->name('get-all-currencies');
-        Route::get('get-spec-currency', [CryptoCurrencyController::class, 'getSpecificCurrency'])->name('get-spec-currency');
+        Route::get('get-spec-currency/{id}', [CryptoCurrencyController::class, 'getSpecificCurrency'])->name('get-spec-currency');
     });
 });

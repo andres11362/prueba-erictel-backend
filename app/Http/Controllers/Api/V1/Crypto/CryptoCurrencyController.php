@@ -57,18 +57,6 @@ class CryptoCurrencyController extends Controller
      *     tags={"cripto"},
      *     summary="Mostrar una cripto moneda en especifico",
      *     description="Retorna dla lista de criptomonedas",
-     *     @OA\RequestBody(
-     *        @OA\MediaType(
-     *          mediaType="application/json",
-     *          @OA\Schema(
-     *                 @OA\Property(
-     *                     property="id",
-     *                     type="integer"
-     *                 ),
-     *                 example={ "id": 1 }
-     *          )
-     *        )
-     *     ),
      *     @OA\Response(
      *         response=200,
      *         description="Moneda encontrada",  
@@ -86,13 +74,10 @@ class CryptoCurrencyController extends Controller
      *     security={{ "apiAuth": {} }}
      * )
      */
-    public function getSpecificCurrency(Request $request) 
+    public function getSpecificCurrency(Request $request, $id) 
     {
         try {
-
-            if(isset($request->id)) {
-                $id = $request->id;
-
+            if(isset($id)) {
                 return CoinMarketCapApi::quotes([
                     'id' => $id,
                 ]);
