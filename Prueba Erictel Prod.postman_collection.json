@@ -1,0 +1,376 @@
+{
+	"info": {
+		"_postman_id": "0be1c8f7-00a4-4002-9c76-22a1f6207124",
+		"name": "Prueba Erictel Prod",
+		"description": "Api de prueba realizada en Laravel para prueba tecnica de Erictel.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "4846831"
+	},
+	"item": [
+		{
+			"name": "Crear usuario",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"erictel@pruebas.com\",\r\n    \"name\": \"Pruebas Erictel\",\r\n    \"description\": \"Soy un usuario de prueba\",\r\n    \"password\": \"123456\",\r\n    \"password_confirmation\": \"123456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://pruebaerictel.us/api/v1/create-user",
+					"protocol": "https",
+					"host": [
+						"pruebaerictel",
+						"us"
+					],
+					"path": [
+						"api",
+						"v1",
+						"create-user"
+					]
+				},
+				"description": "Endpoint para crear un usuario."
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar usuario",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3BydWViYWVyaWN0ZWwudXMvYXBpL3YxL2xvZ2luIiwiaWF0IjoxNjkyNjU4Njk1LCJuYmYiOjE2OTI2NTg2OTUsImp0aSI6InBqOFlNVWNBbnJLSUw0cnciLCJzdWIiOiIxNyIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.ijuDP0-HHMH1iq-43CvJV1PyzEd6qhrTJoh9TEOsjP8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Pruebas Erictel 2\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://pruebaerictel.us/api/v1/update-user",
+					"protocol": "https",
+					"host": [
+						"pruebaerictel",
+						"us"
+					],
+					"path": [
+						"api",
+						"v1",
+						"update-user"
+					]
+				},
+				"description": "Endpoint para actualizar un usuario."
+			},
+			"response": []
+		},
+		{
+			"name": "Subir imagen usuario",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3BydWViYWVyaWN0ZWwudXMvYXBpL3YxL2xvZ2luIiwiaWF0IjoxNjkyNjU4Njk1LCJuYmYiOjE2OTI2NTg2OTUsImp0aSI6InBqOFlNVWNBbnJLSUw0cnciLCJzdWIiOiIxNyIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.ijuDP0-HHMH1iq-43CvJV1PyzEd6qhrTJoh9TEOsjP8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/C:/Users/agong/Desktop/1519899786735.jpeg"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://pruebaerictel.us/api/v1/upload-image-user",
+					"protocol": "https",
+					"host": [
+						"pruebaerictel",
+						"us"
+					],
+					"path": [
+						"api",
+						"v1",
+						"upload-image-user"
+					]
+				},
+				"description": "Endpoint que permite subir una imagen al usuario loggeado. (En esta usar una imagen de prueba)"
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener usuario",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3BydWViYWVyaWN0ZWwudXMvYXBpL3YxL2xvZ2luIiwiaWF0IjoxNjkyNjU4Njk1LCJuYmYiOjE2OTI2NTg2OTUsImp0aSI6InBqOFlNVWNBbnJLSUw0cnciLCJzdWIiOiIxNyIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.ijuDP0-HHMH1iq-43CvJV1PyzEd6qhrTJoh9TEOsjP8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://pruebaerictel.us/api/v1/get-user",
+					"protocol": "https",
+					"host": [
+						"pruebaerictel",
+						"us"
+					],
+					"path": [
+						"api",
+						"v1",
+						"get-user"
+					]
+				},
+				"description": "Endpoint para obtener datos del usuario loggeado."
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"erictel@pruebas.com\",\r\n    \"password\": \"123456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://pruebaerictel.us/api/v1/login",
+					"protocol": "https",
+					"host": [
+						"pruebaerictel",
+						"us"
+					],
+					"path": [
+						"api",
+						"v1",
+						"login"
+					]
+				},
+				"description": "Endpoint que permite iniciar sesion a un usuario."
+			},
+			"response": []
+		},
+		{
+			"name": "Logout",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3BydWViYWVyaWN0ZWwudXMvYXBpL3YxL2xvZ2luIiwiaWF0IjoxNjkyNjU4Njk1LCJuYmYiOjE2OTI2NTg2OTUsImp0aSI6InBqOFlNVWNBbnJLSUw0cnciLCJzdWIiOiIxNyIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.ijuDP0-HHMH1iq-43CvJV1PyzEd6qhrTJoh9TEOsjP8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3BydWViYWVyaWN0ZWwudXMvYXBpL3YxL2xvZ2luIiwiaWF0IjoxNjkyNjU4Njk1LCJuYmYiOjE2OTI2NTg2OTUsImp0aSI6InBqOFlNVWNBbnJLSUw0cnciLCJzdWIiOiIxNyIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.ijuDP0-HHMH1iq-43CvJV1PyzEd6qhrTJoh9TEOsjP8\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://pruebaerictel.us/api/v1/logout",
+					"protocol": "https",
+					"host": [
+						"pruebaerictel",
+						"us"
+					],
+					"path": [
+						"api",
+						"v1",
+						"logout"
+					]
+				},
+				"description": "Endpoint que permite cerrar la sesión a un usuario."
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener todas las monedas",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3BydWViYWVyaWN0ZWwudXMvYXBpL3YxL2xvZ2luIiwiaWF0IjoxNjkyNjU4Njk1LCJuYmYiOjE2OTI2NTg2OTUsImp0aSI6InBqOFlNVWNBbnJLSUw0cnciLCJzdWIiOiIxNyIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.ijuDP0-HHMH1iq-43CvJV1PyzEd6qhrTJoh9TEOsjP8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://pruebaerictel.us/api/v1/get-all-currencies",
+					"protocol": "https",
+					"host": [
+						"pruebaerictel",
+						"us"
+					],
+					"path": [
+						"api",
+						"v1",
+						"get-all-currencies"
+					]
+				},
+				"description": "Endpoint que permite traer un listado de 10 cripto-monedas de prueba, por medio del api de CoinMarketCap."
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener una moneda",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"connection": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3BydWViYWVyaWN0ZWwudXMvYXBpL3YxL2xvZ2luIiwiaWF0IjoxNjkyNjU4Njk1LCJuYmYiOjE2OTI2NTg2OTUsImp0aSI6InBqOFlNVWNBbnJLSUw0cnciLCJzdWIiOiIxNyIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.ijuDP0-HHMH1iq-43CvJV1PyzEd6qhrTJoh9TEOsjP8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://pruebaerictel.us/api/v1/get-spec-currency/5",
+					"protocol": "https",
+					"host": [
+						"pruebaerictel",
+						"us"
+					],
+					"path": [
+						"api",
+						"v1",
+						"get-spec-currency",
+						"5"
+					]
+				},
+				"description": "Endpoint que permite una criptomoneda en especifico por medio de su id."
+			},
+			"response": []
+		}
+	]
+}
